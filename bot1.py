@@ -48,10 +48,10 @@ async def ask_llm(user_message):
                     return data["choices"][0]["message"]["content"]
                 else:
                     error_msg = data.get("error", {}).get("message", "Unknown error")
-                    return f"❌ Ошибка LLM: {error_msg}"
+                    return f" Ошибка LLM: {error_msg}"
                     
     except Exception as e:
-        return f"❌ Ошибка соединения: {str(e)}"
+        return f" Ошибка соединения: {str(e)}"
 
 # Создаём экземпляры бота и диспетчера
 bot = Bot(token=BOT_TOKEN)
@@ -83,4 +83,5 @@ async def main():
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
+
     asyncio.run(main())
